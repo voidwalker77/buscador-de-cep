@@ -17,14 +17,8 @@ export default function App() {
 		}
 	}
 
-	const logradouro = () => {
-		if (cep.complemento === "") {
-			return '(Não existe.)'
-		}
-	}
 	const handleSearch = async (e) => {
 		e.preventDefault()
-		
 
 		try {
 			
@@ -43,12 +37,11 @@ export default function App() {
 			}
 			setInput('')
 		}
-
 	}	
 	
 	return (
 		<div className="container">
-			<h1 className="title">buscador cep</h1>
+			<h1 className="title">buscador de cep</h1>
 
 			<div className="container--input">
 			<form>
@@ -71,7 +64,7 @@ export default function App() {
 					<h2><GoLocation size={30} color="5e0035"/> CEP: {cep.cep}</h2>
 
 					<span>Logradouro: {cep.logradouro}</span>
-					<span>Complemento: {cep.complemento}{logradouro()}</span>
+					<span>Complemento: {`${cep.complemento ? cep.complemento : '(Não informado)'}`}</span>
 					<span>Bairro: {cep.bairro}</span>
 					<span>Localidade: {cep.localidade} - {cep.uf}</span>
 
